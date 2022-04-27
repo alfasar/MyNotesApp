@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import com.example.mynotesapp.appdata.RegViewModel
+import com.example.mynotesapp.appdata.User
 import com.example.mynotesapp.databinding.FragmentRegBinding
 import kotlinx.android.synthetic.main.fragment_reg.*
 
@@ -16,12 +19,16 @@ class RegFragment : Fragment(R.layout.fragment_reg) {
     private var _binding: FragmentRegBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var mRegViewModel: RegViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentRegBinding.inflate(inflater, container, false)
+
+        mRegViewModel = ViewModelProvider(this)[RegViewModel::class.java]
 
         binding.signButton.setOnClickListener {
             addUserToDatabase()
@@ -33,7 +40,9 @@ class RegFragment : Fragment(R.layout.fragment_reg) {
         val email = newEmail.text.toString()
         val password = newPassword.text.toString()
         if (inputCheck(email, password)) {
-            //code to add to database
+            //Adding to Database
+            val user = User(0, email, password)
+            mRegViewModel.addUserToDatabase(user)
             Toast.makeText(requireContext(), "You're signed up!", Toast.LENGTH_SHORT).show()
             Navigation.findNavController(requireView()).navigateUp()
         } else {

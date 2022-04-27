@@ -8,7 +8,7 @@ import androidx.room.Query
 @Dao
 interface UserDao {
     @Insert
-    suspend fun insert(user: User)
+    suspend fun addUserToDatabase(user: User)
 
     @Query("SELECT * FROM user_table ORDER BY userId DESC")
     fun getAllUsers(): LiveData<List<User>>
