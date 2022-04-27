@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingTop="15dp"
-    android:paddingBottom="10dp"
-    tools:context=".ItemAdapterFragment">
+    android:paddingBottom="10dp" >
 
     <TextView
         android:id="@+id/name"
