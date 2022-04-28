@@ -1,9 +1,8 @@
 package com.example.mynotesapp.appdata
 
-class UserRepository(private val uDao: UserDao/*, private var iDao: ItemDao*/) {
+class UserRepository(private val uDao: UserDao) {
 
     val users = uDao.getAllUsers()
-    //val items = iDao.readAllData()
 
     suspend fun addUserToDatabase(user: User) {
         return uDao.addUserToDatabase(user)
@@ -12,8 +11,4 @@ class UserRepository(private val uDao: UserDao/*, private var iDao: ItemDao*/) {
     suspend fun getUserEmail(email: String): User? {
         return uDao.getUserEmail(email)
     }
-
-    /*suspend fun addItemToDatabase(item: Item) {
-        return iDao.addItemToDatabase(item)
-    }*/
 }
