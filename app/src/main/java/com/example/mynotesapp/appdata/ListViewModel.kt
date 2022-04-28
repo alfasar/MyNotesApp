@@ -10,7 +10,7 @@ class ListViewModel(application: Application): AndroidViewModel(application) {
     private val repository: ItemRepository
 
     init {
-        val itemDao = ItemDatabase.getDatabase(application).itemDao()
+        val itemDao = AppDatabase.getInstance(application).itemDao()
         repository = ItemRepository(itemDao)
     }
     fun addItemToDatabase(item: Item) {

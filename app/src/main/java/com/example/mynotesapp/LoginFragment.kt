@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.mynotesapp.appdata.LoginViewModel
 import com.example.mynotesapp.databinding.FragmentLoginBinding
-import kotlinx.android.synthetic.main.fragment_login.*
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
@@ -36,9 +35,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun logIn() {
-        val email = editEmailAddress.text.toString()
-        val password = editPassword.text.toString()
-        if(inputCheck(email, password)) {
+        val email = binding.editEmailAddress.text.toString()
+        val password = binding.editPassword.text.toString()
+        if (inputCheck(email, password)) {
 
             Toast.makeText(requireContext(), "Logged in as $email", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_loginFragment_to_listFragment)
@@ -47,8 +46,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
     }
 
-    private fun inputCheck(email:String, password:String):Boolean {
-        return!(TextUtils.isEmpty(email) || TextUtils.isEmpty(password))
+    private fun inputCheck(email: String, password: String): Boolean {
+        return !(TextUtils.isEmpty(email) || TextUtils.isEmpty(password))
     }
 
     override fun onDestroyView() {

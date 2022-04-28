@@ -12,7 +12,6 @@ import androidx.navigation.Navigation
 import com.example.mynotesapp.appdata.RegViewModel
 import com.example.mynotesapp.appdata.User
 import com.example.mynotesapp.databinding.FragmentRegBinding
-import kotlinx.android.synthetic.main.fragment_reg.*
 
 class RegFragment : Fragment(R.layout.fragment_reg) {
 
@@ -37,8 +36,8 @@ class RegFragment : Fragment(R.layout.fragment_reg) {
         return binding.root
     }
     private fun addUserToDatabase() {
-        val email = newEmail.text.toString()
-        val password = newPassword.text.toString()
+        val email = binding.newEmail.text.toString()
+        val password = binding.newPassword.text.toString()
         if (inputCheck(email, password)) {
             //Adding to Database
             val user = User(0, email, password)

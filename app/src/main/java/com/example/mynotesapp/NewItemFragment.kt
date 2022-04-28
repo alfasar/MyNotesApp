@@ -15,7 +15,6 @@ import androidx.navigation.Navigation
 import com.example.mynotesapp.appdata.Item
 import com.example.mynotesapp.appdata.ListViewModel
 import com.example.mynotesapp.databinding.FragmentNewItemBinding
-import kotlinx.android.synthetic.main.fragment_new_item.*
 
 class NewItemFragment : Fragment(R.layout.fragment_new_item) {
 
@@ -31,8 +30,6 @@ class NewItemFragment : Fragment(R.layout.fragment_new_item) {
     ): View {
         _binding = FragmentNewItemBinding.inflate(inflater, container, false)
 
-        mListViewmodel = ViewModelProvider(this)[ListViewModel::class.java]
-
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
         val month = c.get(Calendar.MONTH)
@@ -42,7 +39,7 @@ class NewItemFragment : Fragment(R.layout.fragment_new_item) {
             val dataPicker = DatePickerDialog(requireContext(), {_: DatePicker, year: Int, month: Int, dayOfMonth: Int ->
                 val trueMonth = month+1
                 val chosenDate = "$dayOfMonth.$trueMonth.$year"
-                selectDate.text = chosenDate
+                binding.selectDate.text = chosenDate
             }, year, month, day)
             dataPicker.show()
         }
@@ -55,8 +52,9 @@ class NewItemFragment : Fragment(R.layout.fragment_new_item) {
     }
 
     private fun addItemToList() {
-        val name = addName.text.toString()
-        val birthday = selectDate.text.toString()
+        val name = binding.addName.text.toString()
+        val birthday = binding.selectDate.text.toString()
+        mListViewmodel = ViewModelProvider(this)[ListViewModel::class.java]
         if (inputCheck(name, birthday)) {
             val item = Item(0, name, birthday)
             mListViewmodel.addItemToDatabase(item)

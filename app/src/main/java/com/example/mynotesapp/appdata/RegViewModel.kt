@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 class RegViewModel(application: Application): AndroidViewModel(application) {
     private val repository: UserRepository
         init {
-            val userDao = UserDatabase.getInstance(application).userDao()
+            val userDao = AppDatabase.getInstance(application).userDao()
             repository = UserRepository(userDao)
         }
     fun addUserToDatabase(user: User) {
