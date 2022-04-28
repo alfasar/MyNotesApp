@@ -23,6 +23,10 @@ class NewItemFragment : Fragment(R.layout.fragment_new_item) {
     ): View {
         _binding = FragmentNewItemBinding.inflate(inflater, container, false)
 
+        binding.selectDate.setOnClickListener {
+            showDate()
+        }
+
         binding.addBtn.setOnClickListener {
             addItemToList()
         }
@@ -32,7 +36,7 @@ class NewItemFragment : Fragment(R.layout.fragment_new_item) {
 
     private fun addItemToList() {
         val name = addName.text.toString()
-        val birthday = selectDate.text.toString() // have to create datapickerdialog
+        val birthday = selectDate.text.toString()
         if (inputCheck(name, birthday)) {
             //code to add to database
             Toast.makeText(requireContext(), "Item is added", Toast.LENGTH_SHORT).show()
@@ -43,6 +47,10 @@ class NewItemFragment : Fragment(R.layout.fragment_new_item) {
     }
     private fun inputCheck(name:String, birthday:String): Boolean {
         return !(TextUtils.isEmpty(name) || TextUtils.isEmpty(birthday))
+    }
+    private fun showDate() {
+        val picker = DatePickerFragment()
+        picker.show(childFragmentManager, "date_picker")
     }
     override fun onDestroyView() {
         super.onDestroyView()

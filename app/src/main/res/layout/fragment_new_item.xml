@@ -36,4 +36,5 @@
         android:layout_marginHorizontal="100dp"
         android:text="@string/add_btn"
         android:textSize="17sp" />
+
 </LinearLayout>
