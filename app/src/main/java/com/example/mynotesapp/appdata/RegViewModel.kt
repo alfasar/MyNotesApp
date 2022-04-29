@@ -6,12 +6,14 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class RegViewModel(application: Application): AndroidViewModel(application) {
+class RegViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: UserRepository
-        init {
-            val userDao = AppDatabase.getInstance(application).userDao()
-            repository = UserRepository(userDao)
-        }
+
+    init {
+        val userDao = AppDatabase.getInstance(application).userDao()
+        repository = UserRepository(userDao)
+    }
+
     fun addUserToDatabase(user: User) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addUserToDatabase(user)

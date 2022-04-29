@@ -36,11 +36,17 @@ class NewItemFragment : Fragment(R.layout.fragment_new_item) {
         val day = c.get(Calendar.DAY_OF_MONTH)
 
         binding.selectDate.setOnClickListener {
-            val dataPicker = DatePickerDialog(requireContext(), {_: DatePicker, year: Int, month: Int, dayOfMonth: Int ->
-                val trueMonth = month+1
-                val chosenDate = "$dayOfMonth.$trueMonth.$year"
-                binding.selectDate.text = chosenDate
-            }, year, month, day)
+            val dataPicker = DatePickerDialog(
+                requireContext(),
+                { _: DatePicker, year: Int, month: Int, dayOfMonth: Int ->
+                    val trueMonth = month + 1
+                    val chosenDate = "$dayOfMonth.$trueMonth.$year"
+                    binding.selectDate.text = chosenDate
+                },
+                year,
+                month,
+                day
+            )
             dataPicker.show()
         }
 
@@ -64,7 +70,8 @@ class NewItemFragment : Fragment(R.layout.fragment_new_item) {
             Toast.makeText(requireContext(), "Fill out blank fields", Toast.LENGTH_LONG).show()
         }
     }
-    private fun inputCheck(name:String, birthday:String): Boolean {
+
+    private fun inputCheck(name: String, birthday: String): Boolean {
         return !(TextUtils.isEmpty(name) || TextUtils.isEmpty(birthday))
     }
 

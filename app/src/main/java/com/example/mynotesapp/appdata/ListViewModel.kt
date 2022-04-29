@@ -6,13 +6,14 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class ListViewModel(application: Application): AndroidViewModel(application) {
+class ListViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: ItemRepository
 
     init {
         val itemDao = AppDatabase.getInstance(application).itemDao()
         repository = ItemRepository(itemDao)
     }
+
     fun addItemToDatabase(item: Item) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addItemToDatabase(item)

@@ -35,6 +35,7 @@ class RegFragment : Fragment(R.layout.fragment_reg) {
 
         return binding.root
     }
+
     private fun addUserToDatabase() {
         val email = binding.newEmail.text.toString()
         val password = binding.newPassword.text.toString()
@@ -48,9 +49,11 @@ class RegFragment : Fragment(R.layout.fragment_reg) {
             Toast.makeText(requireContext(), "Fill out blank fields", Toast.LENGTH_LONG).show()
         }
     }
-    private fun inputCheck(email:String, password: String): Boolean {
+
+    private fun inputCheck(email: String, password: String): Boolean {
         return !(TextUtils.isEmpty(email) || TextUtils.isEmpty(password))
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
