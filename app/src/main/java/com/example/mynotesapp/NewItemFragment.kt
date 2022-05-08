@@ -21,7 +21,7 @@ class NewItemFragment : Fragment(R.layout.fragment_new_item) {
     private var _binding: FragmentNewItemBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var mListViewmodel: ListViewModel
+    private lateinit var mListViewModel: ListViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,10 +37,9 @@ class NewItemFragment : Fragment(R.layout.fragment_new_item) {
 
         binding.selectDate.setOnClickListener {
             val dataPicker = DatePickerDialog(
-                requireContext(),
+                requireContext(), R.style.DatePickerStyle,
                 { _: DatePicker, year: Int, month: Int, dayOfMonth: Int ->
-                    val trueMonth = month + 1
-                    val chosenDate = "$dayOfMonth.$trueMonth.$year"
+                    val chosenDate = "$dayOfMonth.${month+1}.$year"
                     binding.selectDate.text = chosenDate
                 },
                 year,
@@ -60,10 +59,10 @@ class NewItemFragment : Fragment(R.layout.fragment_new_item) {
     private fun addItemToList() {
         val name = binding.addName.text.toString()
         val birthday = binding.selectDate.text.toString()
-        mListViewmodel = ViewModelProvider(this)[ListViewModel::class.java]
+        mListViewModel = ViewModelProvider(this)[ListViewModel::class.java]
         if (inputCheck(name, birthday)) {
             val item = Item(0, name, birthday)
-            mListViewmodel.addItemToDatabase(item)
+            mListViewModel.addItemToDatabase(item)
             Toast.makeText(requireContext(), "Item is added", Toast.LENGTH_SHORT).show()
             Navigation.findNavController(requireView()).navigateUp()
         } else {

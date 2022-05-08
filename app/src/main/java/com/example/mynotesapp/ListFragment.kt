@@ -15,6 +15,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
 
     private var _binding: FragmentListBinding? = null
     private val binding get() = _binding!!
+
     private lateinit var mListViewModel: ListViewModel
     private val adapter = ItemAdapterFragment()
 
