@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.mynotesapp.appdata.LoginViewModel
 import com.example.mynotesapp.databinding.FragmentLoginBinding
+import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
@@ -40,16 +42,19 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         val password = binding.editPassword.text.toString()
         if (inputCheck(email, password)) {
             mLoginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
-            val emailList = mLoginViewModel.getUserEmail(email)
-            if (emailList!=null) {
-                if (emailList.password == password) {
-                    Toast.makeText(requireContext(), "Logged in as $email", Toast.LENGTH_LONG).show()
-                    findNavController().navigate(R.id.action_loginFragment_to_listFragment)
+            lifecycleScope.launch {
+                val emailList = mLoginViewModel.getUserEmail(email)
+                if (emailList != null) {
+                    if (emailList.password == password) {
+                        Toast.makeText(requireContext(), "Logged in as $email", Toast.LENGTH_LONG)
+                            .show()
+                        findNavController().navigate(R.id.action_loginFragment_to_listFragment)
+                    } else {
+                        Toast.makeText(requireContext(), "Invalid password", Toast.LENGTH_SHORT).show()
+                    }
                 } else {
-                    Toast.makeText(requireContext(), "Invalid password", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Invalid email", Toast.LENGTH_SHORT).show()
                 }
-            } else {
-                Toast.makeText(requireContext(), "Invalid email", Toast.LENGTH_SHORT).show()
             }
         } else {
             Toast.makeText(requireContext(), "Fill out blank fields", Toast.LENGTH_LONG).show()

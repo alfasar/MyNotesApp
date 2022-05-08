@@ -2,9 +2,6 @@ package com.example.mynotesapp.appdata
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -15,11 +12,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
         repository = UserRepository(userDao)
     }
 
-    fun getUserEmail(email: String): User? {
-        var checker: User? = null
-        viewModelScope.launch(Dispatchers.IO) {
-            checker = repository.getUserEmail(email)
-        }
-        return checker
+    suspend fun getUserEmail(email: String): User? {
+        return repository.getUserEmail(email)
     }
 }

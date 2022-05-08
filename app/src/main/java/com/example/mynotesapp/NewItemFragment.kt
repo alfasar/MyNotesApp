@@ -39,7 +39,7 @@ class NewItemFragment : Fragment(R.layout.fragment_new_item) {
             val dataPicker = DatePickerDialog(
                 requireContext(), R.style.DatePickerStyle,
                 { _: DatePicker, year: Int, month: Int, dayOfMonth: Int ->
-                    val chosenDate = "$dayOfMonth.${month+1}.$year"
+                    val chosenDate = "$dayOfMonth.${month + 1}.$year"
                     binding.selectDate.text = chosenDate
                 },
                 year,
