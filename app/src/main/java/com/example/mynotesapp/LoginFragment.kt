@@ -50,7 +50,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                             .show()
                         findNavController().navigate(R.id.action_loginFragment_to_listFragment)
                     } else {
-                        Toast.makeText(requireContext(), "Invalid password", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Invalid password", Toast.LENGTH_SHORT)
+                            .show()
                     }
                 } else {
                     Toast.makeText(requireContext(), "Invalid email", Toast.LENGTH_SHORT).show()

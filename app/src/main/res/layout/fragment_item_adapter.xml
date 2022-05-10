@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingTop="15dp"
-    android:paddingBottom="10dp" >
+    android:paddingBottom="10dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="60dp"
             android:layout_marginTop="10dp"
-            android:text="@string/hello_blank_fragment"
+            android:text="@string/adapter_fragment_text"
             android:textSize="17sp"
             android:textStyle="bold" />
 
@@ -31,7 +31,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="60dp"
             android:layout_marginTop="35dp"
-            android:text="@string/hello_blank_fragment"
+            android:text="@string/adapter_fragment_text"
             android:textSize="15sp"
             android:textStyle="normal" />
 
@@ -42,7 +42,7 @@
             android:layout_gravity="right"
             android:layout_marginTop="10dp"
             android:layout_marginRight="15dp"
-            android:text="@string/hello_blank_fragment"
+            android:text="@string/adapter_fragment_text"
             android:textSize="17sp"
             tools:ignore="RtlHardcoded" />
 

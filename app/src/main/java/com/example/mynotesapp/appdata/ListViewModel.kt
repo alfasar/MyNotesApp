@@ -22,4 +22,10 @@ class ListViewModel(application: Application) : AndroidViewModel(application) {
             repository.addItemToDatabase(item)
         }
     }
+
+    fun deleteAll() {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAll()
+        }
+    }
 }

@@ -1,9 +1,8 @@
 package com.example.mynotesapp
 
+import android.app.AlertDialog
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -38,7 +37,53 @@ class ListFragment : Fragment(R.layout.fragment_list) {
         binding.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_newItemFragment)
         }
+
+        setHasOptionsMenu(true)
+
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_list, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
+        R.id.menu_logOut -> {
+            logOut()
+            true
+        }
+        R.id.menu_deleteAll -> {
+            deleteAll()
+            true
+        }
+        else -> {
+            super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun logOut() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.apply {
+            setTitle("Do you want to log out?")
+            setPositiveButton("Yes") { _, _ ->
+                findNavController().navigate(R.id.action_listFragment_to_loginFragment)
+            }
+            setNegativeButton("No") { _, _ -> }
+            create().show()
+        }
+    }
+
+    private fun deleteAll() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.apply {
+            setTitle("Are you sure to delete all items?")
+            setMessage("Items cannot be restored")
+            setPositiveButton("Delete All") { _, _ ->
+                mListViewModel.deleteAll()
+            }
+            setNegativeButton("No") { _, _ -> }
+            create().show()
+        }
     }
 
     override fun onDestroyView() {

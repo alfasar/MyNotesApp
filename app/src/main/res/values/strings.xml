@@ -10,5 +10,7 @@
     <string name="floating_btn_desc">Add a new item</string>
     <string name="add_btn">Add</string>
     <string name="person_avatar">Persons avatar</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_logOut_action">Log Out</string>
+    <string name="menu_deleteAll_action">Delete All</string>
+    <string name="adapter_fragment_text">Data to insert</string>
 </resources>

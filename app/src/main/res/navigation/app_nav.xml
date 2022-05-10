@@ -9,16 +9,19 @@
         android:id="@+id/listFragment"
         android:name="com.example.mynotesapp.ListFragment"
         android:label="List"
-        tools:layout="@layout/fragment_list" >
+        tools:layout="@layout/fragment_list">
         <action
             android:id="@+id/action_listFragment_to_newItemFragment"
             app:destination="@id/newItemFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/newItemFragment"
         android:name="com.example.mynotesapp.NewItemFragment"
         android:label="Add a new person"
-        tools:layout="@layout/fragment_new_item" >
+        tools:layout="@layout/fragment_new_item">
         <action
             android:id="@+id/action_newItemFragment_to_listFragment"
             app:destination="@id/listFragment" />
@@ -27,7 +30,7 @@
         android:id="@+id/loginFragment"
         android:name="com.example.mynotesapp.LoginFragment"
         android:label="Login to continue"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_regFragment"
             app:destination="@id/regFragment" />
@@ -39,7 +42,7 @@
         android:id="@+id/regFragment"
         android:name="com.example.mynotesapp.RegFragment"
         android:label="Registration"
-        tools:layout="@layout/fragment_reg" >
+        tools:layout="@layout/fragment_reg">
         <action
             android:id="@+id/action_regFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
