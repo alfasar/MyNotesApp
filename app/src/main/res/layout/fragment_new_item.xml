@@ -16,13 +16,14 @@
         android:layout_margin="12dp"
         android:textColorHint="@color/hint_color" />
 
-    <EditText
+    <TextView
         android:id="@+id/selectDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:textSize="20sp"
+        android:focusable="false"
         android:hint="@string/enter_date"
-        android:inputType="date"
         android:minHeight="48dp"
         android:layout_margin="12dp"
         android:textAlignment="center"
@@ -36,4 +37,5 @@
         android:layout_marginHorizontal="100dp"
         android:text="@string/add_btn"
         android:textSize="17sp" />
+
 </LinearLayout>
