@@ -1,6 +1,5 @@
 package com.example.mynotesapp
 
-import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,7 @@ import java.time.Period
 class ItemAdapterFragment :
     RecyclerView.Adapter<ItemAdapterFragment.ItemHolder>() {
 
-    private var itemList = emptyList<Item>()
+    private var itemList = mutableListOf<Item>()
 
     class ItemHolder(item: View) : RecyclerView.ViewHolder(item) {
         private val binding = FragmentItemAdapterBinding.bind(item)
@@ -51,11 +50,10 @@ class ItemAdapterFragment :
         holder.bind(itemList[position])
     }
 
-    override fun getItemCount(): Int {
-        return itemList.size
-    }
+    override fun getItemCount(): Int = itemList.size
 
-    fun addItem(item: List<Item>) {
+    fun addItem(item: MutableList<Item>) {
+        itemList.clear()
         this.itemList = item
         notifyDataSetChanged()
     }
