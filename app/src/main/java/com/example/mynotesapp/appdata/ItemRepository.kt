@@ -7,4 +7,8 @@ class ItemRepository(private val iDao: ItemDao) {
     suspend fun addItemToDatabase(item: Item) {
         return iDao.addItemToDatabase(item)
     }
+
+    suspend fun deleteAll() {
+        return iDao.deleteAll()
+    }
 }

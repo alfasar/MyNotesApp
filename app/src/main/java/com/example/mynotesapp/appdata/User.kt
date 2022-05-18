@@ -9,7 +9,7 @@ data class User(
     @PrimaryKey(autoGenerate = true)
     var userId: Int = 0,
 
-    @ColumnInfo(name = "E-mail")
+    @ColumnInfo(name = "E_mail")
     var email: String,
 
     @ColumnInfo(name = "Password")
