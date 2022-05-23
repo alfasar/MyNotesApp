@@ -43,12 +43,12 @@ class ItemAdapterFragment :
         private fun daysLeft(month: Int, dayOfMonth: Int): String {
             val result: String
             val currentYear = Calendar.getInstance().get(Calendar.YEAR)
-            val nextYear = Calendar.getInstance().get(Calendar.YEAR)+1
+            val nextYear = Calendar.getInstance().get(Calendar.YEAR) + 1
             val currentBirthDate = LocalDate.of(currentYear, month, dayOfMonth)
             val nextBirthDate = LocalDate.of(nextYear, month, dayOfMonth)
             result = if (currentBirthDate.isAfter(LocalDate.now())) {
                 ChronoUnit.DAYS.between(LocalDate.now(), currentBirthDate).toString()
-            } else if (currentBirthDate.isBefore(LocalDate.now())){
+            } else if (currentBirthDate.isBefore(LocalDate.now())) {
                 ChronoUnit.DAYS.between(LocalDate.now(), nextBirthDate).toString()
             } else {
                 "Today!"
