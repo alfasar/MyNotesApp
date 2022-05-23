@@ -30,10 +30,7 @@ class ItemAdapterFragment :
             ) + 1).toString()
             val monthName = Month.of(splitter[1].toInt())
             itemBirthday.text = "${splitter[0]} of $monthName turning $turningAge"
-            daysLeft.text = daysLeft(
-                splitter[1].toInt(),
-                splitter[0].toInt()
-            ).toString()
+            daysLeft.text = daysLeft(splitter[1].toInt(), splitter[0].toInt())
         }
 
         private fun getAge(year: Int, month: Int, dayOfMonth: Int): Int {
@@ -43,17 +40,20 @@ class ItemAdapterFragment :
             ).years
         }
 
-        private fun daysLeft(month: Int, dayOfMonth: Int): Long {
+        private fun daysLeft(month: Int, dayOfMonth: Int): String {
+            val result: String
             val currentYear = Calendar.getInstance().get(Calendar.YEAR)
             val nextYear = Calendar.getInstance().get(Calendar.YEAR)+1
             val currentBirthDate = LocalDate.of(currentYear, month, dayOfMonth)
             val nextBirthDate = LocalDate.of(nextYear, month, dayOfMonth)
-            val calendarDate = LocalDate.now()
-            return if (currentBirthDate.isAfter(calendarDate)) {
-                ChronoUnit.DAYS.between(calendarDate, currentBirthDate)
+            result = if (currentBirthDate.isAfter(LocalDate.now())) {
+                ChronoUnit.DAYS.between(LocalDate.now(), currentBirthDate).toString()
+            } else if (currentBirthDate.isBefore(LocalDate.now())){
+                ChronoUnit.DAYS.between(LocalDate.now(), nextBirthDate).toString()
             } else {
-                ChronoUnit.DAYS.between(calendarDate, nextBirthDate)
+                "Today!"
             }
+            return result
         }
     }
 
