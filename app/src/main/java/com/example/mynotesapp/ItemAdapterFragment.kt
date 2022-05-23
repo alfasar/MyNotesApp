@@ -9,6 +9,8 @@ import com.example.mynotesapp.databinding.FragmentItemAdapterBinding
 import java.time.LocalDate
 import java.time.Month
 import java.time.Period
+import java.time.temporal.ChronoUnit
+import java.util.*
 
 class ItemAdapterFragment :
     RecyclerView.Adapter<ItemAdapterFragment.ItemHolder>() {
@@ -28,7 +30,10 @@ class ItemAdapterFragment :
             ) + 1).toString()
             val monthName = Month.of(splitter[1].toInt())
             itemBirthday.text = "${splitter[0]} of $monthName turning $turningAge"
-            daysLeft.text = "To be continued"
+            daysLeft.text = daysLeft(
+                splitter[1].toInt(),
+                splitter[0].toInt()
+            ).toString()
         }
 
         private fun getAge(year: Int, month: Int, dayOfMonth: Int): Int {
@@ -36,6 +41,19 @@ class ItemAdapterFragment :
                 LocalDate.of(year, month, dayOfMonth),
                 LocalDate.now()
             ).years
+        }
+
+        private fun daysLeft(month: Int, dayOfMonth: Int): Long {
+            val currentYear = Calendar.getInstance().get(Calendar.YEAR)
+            val nextYear = Calendar.getInstance().get(Calendar.YEAR)+1
+            val currentBirthDate = LocalDate.of(currentYear, month, dayOfMonth)
+            val nextBirthDate = LocalDate.of(nextYear, month, dayOfMonth)
+            val calendarDate = LocalDate.now()
+            return if (currentBirthDate.isAfter(calendarDate)) {
+                ChronoUnit.DAYS.between(calendarDate, currentBirthDate)
+            } else {
+                ChronoUnit.DAYS.between(calendarDate, nextBirthDate)
+            }
         }
     }
 

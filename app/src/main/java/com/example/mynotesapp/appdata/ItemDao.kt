@@ -9,7 +9,7 @@ interface ItemDao {
     suspend fun addItemToDatabase(item: Item)
 
     @Query("SELECT * FROM item_table ORDER BY itemId ASC")
-    fun readAllData(): LiveData<List<Item>>
+    fun readAllData(): LiveData<MutableList<Item>>
 
     @Query("DELETE FROM item_table")
     suspend fun deleteAll()
