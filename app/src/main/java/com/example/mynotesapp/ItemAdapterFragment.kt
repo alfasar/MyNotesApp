@@ -36,7 +36,9 @@ class ItemAdapterFragment :
             itemBirthday.text = "${splitter[0]} of $monthName turning $turningAge"
             val daysTillBirthday = daysLeft(splitter[1].toInt(), splitter[0].toInt())
             daysLeft.text = daysTillBirthday
-            if (daysTillBirthday=="Today!") {createWorkRequest("${item.name} has a birthday today", "Wish a Happy Birthday")}
+            if (daysTillBirthday == "Today!") {
+                createWorkRequest("${item.name} has a birthday today")
+            }
         }
 
         private fun getAge(year: Int, month: Int, dayOfMonth: Int): Int {
@@ -62,13 +64,13 @@ class ItemAdapterFragment :
             return result
         }
 
-        private fun createWorkRequest(title: String, message: String) {
+        private fun createWorkRequest(title: String) {
             val myWorkRequest = OneTimeWorkRequestBuilder<BirthdayWorker>()
-                //.setInitialDelay(timeDelayInHours, TimeUnit.HOURS)
+                .setInitialDelay(10, TimeUnit.HOURS)
                 .setInputData(
                     workDataOf(
                         "title" to title,
-                        "message" to message
+                        "message" to "Wish a Happy Birthday"
                     )
                 )
                 .build()
