@@ -1,4 +1,4 @@
-package com.example.mynotesapp
+package com.example.mynotesapp.presentation.itemadapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
-import com.example.mynotesapp.appdata.Item
+import com.example.mynotesapp.worker.BirthdayWorker
+import com.example.mynotesapp.R
+import com.example.mynotesapp.appdata.item.Item
 import com.example.mynotesapp.databinding.FragmentItemAdapterBinding
 import java.time.LocalDate
 import java.time.Month

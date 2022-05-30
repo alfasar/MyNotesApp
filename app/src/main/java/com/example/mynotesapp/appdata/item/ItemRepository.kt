@@ -1,4 +1,4 @@
-package com.example.mynotesapp.appdata
+package com.example.mynotesapp.appdata.item
 
 class ItemRepository(private val iDao: ItemDao) {
 

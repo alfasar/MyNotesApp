@@ -1,4 +1,4 @@
-package com.example.mynotesapp
+package com.example.mynotesapp.presentation.login
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.example.mynotesapp.appdata.LoginViewModel
+import com.example.mynotesapp.R
 import com.example.mynotesapp.databinding.FragmentLoginBinding
 import kotlinx.coroutines.launch
 

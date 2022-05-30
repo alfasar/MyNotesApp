@@ -1,4 +1,4 @@
-package com.example.mynotesapp
+package com.example.mynotesapp.worker
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -8,6 +8,8 @@ import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.example.mynotesapp.R
+import com.example.mynotesapp.presentation.itemadapter.ItemAdapterFragment
 
 class NotificationHelper(val context: Context) {
 

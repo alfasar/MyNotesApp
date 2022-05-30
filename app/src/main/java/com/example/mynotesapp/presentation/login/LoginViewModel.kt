@@ -1,7 +1,10 @@
-package com.example.mynotesapp.appdata
+package com.example.mynotesapp.presentation.login
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import com.example.mynotesapp.appdata.AppDatabase
+import com.example.mynotesapp.appdata.user.User
+import com.example.mynotesapp.appdata.user.UserRepository
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
 

@@ -1,8 +1,11 @@
-package com.example.mynotesapp.appdata
+package com.example.mynotesapp.presentation.registration
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.mynotesapp.appdata.AppDatabase
+import com.example.mynotesapp.appdata.user.User
+import com.example.mynotesapp.appdata.user.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

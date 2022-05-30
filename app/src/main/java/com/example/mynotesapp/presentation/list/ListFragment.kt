@@ -1,4 +1,4 @@
-package com.example.mynotesapp
+package com.example.mynotesapp.presentation.list
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -6,8 +6,9 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.mynotesapp.appdata.ListViewModel
+import com.example.mynotesapp.R
 import com.example.mynotesapp.databinding.FragmentListBinding
+import com.example.mynotesapp.presentation.itemadapter.ItemAdapterFragment
 
 class ListFragment : Fragment(R.layout.fragment_list) {
 

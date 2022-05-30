@@ -1,4 +1,4 @@
-package com.example.mynotesapp
+package com.example.mynotesapp.presentation.itemadapter
 
 import android.app.DatePickerDialog
 import android.icu.util.Calendar
@@ -12,9 +12,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import com.example.mynotesapp.appdata.Item
-import com.example.mynotesapp.appdata.ListViewModel
+import com.example.mynotesapp.R
+import com.example.mynotesapp.appdata.item.Item
 import com.example.mynotesapp.databinding.FragmentNewItemBinding
+import com.example.mynotesapp.presentation.list.ListViewModel
 
 class NewItemFragment : Fragment(R.layout.fragment_new_item) {
 

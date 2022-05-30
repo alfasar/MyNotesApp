@@ -1,4 +1,4 @@
-package com.example.mynotesapp
+package com.example.mynotesapp.presentation.registration
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -9,8 +9,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import com.example.mynotesapp.appdata.RegViewModel
-import com.example.mynotesapp.appdata.User
+import com.example.mynotesapp.R
+import com.example.mynotesapp.appdata.user.User
 import com.example.mynotesapp.databinding.FragmentRegBinding
 
 class RegFragment : Fragment(R.layout.fragment_reg) {

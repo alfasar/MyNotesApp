@@ -1,11 +1,8 @@
-package com.example.mynotesapp
+package com.example.mynotesapp.worker
 
 import android.content.Context
-import androidx.core.app.NotificationCompat
-import androidx.work.ForegroundInfo
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import kotlin.random.Random
 
 class BirthdayWorker(val context: Context, val workerParams: WorkerParameters) :
     Worker(context, workerParams) {
