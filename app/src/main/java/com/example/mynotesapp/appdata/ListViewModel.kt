@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class ListViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: ItemRepository
-    val listItems: LiveData<List<Item>>
+    val listItems: LiveData<MutableList<Item>>
 
     init {
         val itemDao = AppDatabase.getInstance(application).itemDao()
