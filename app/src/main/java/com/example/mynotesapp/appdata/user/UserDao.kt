@@ -1,4 +1,4 @@
-package com.example.mynotesapp.appdata
+package com.example.mynotesapp.appdata.user
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

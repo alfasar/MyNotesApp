@@ -1,9 +1,12 @@
-package com.example.mynotesapp.appdata
+package com.example.mynotesapp.presentation.list
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.example.mynotesapp.appdata.AppDatabase
+import com.example.mynotesapp.appdata.item.Item
+import com.example.mynotesapp.appdata.item.ItemRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

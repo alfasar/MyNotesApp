@@ -1,4 +1,4 @@
-package com.example.mynotesapp.appdata
+package com.example.mynotesapp.appdata.user
 
 class UserRepository(private val uDao: UserDao) {
 
